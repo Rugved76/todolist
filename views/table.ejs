@@ -22,9 +22,11 @@
             border-radius: 3px;
             color: black;
             border: 1px solid black;
-            margin: 5px;
+            margin: 2px;
             margin-right: 51vw;
-            padding: 5px;
+
+            padding-left: 15px;
+            padding-right: 15px;
         }
 
         .add:hover {
@@ -60,14 +62,15 @@
             background-color: transparent;
             border: none;
             float: right;
-            color: red;
+            color: black;
         }
 
         button:hover {
-            background-color: black;
             color: red;
             transition: 0.3s;
             border-radius: 2px;
+            
+            /* border: 1px solid black; */
         }
 
         h1 {
@@ -85,6 +88,7 @@
             display: flex;
             margin: auto;
         }
+        
     </style>
     <title>Document</title>
 </head>
@@ -120,15 +124,13 @@
                         </td>
                         <td>
                             <form method="post" action="/deleteSongs/<%= item._id %>">
-                                <button type="submit"><strong>X</strong></button>
+                                <button type="submit"><strong>-</strong></button>
                             </form>
                         </td>
                     </tr>
                     <% }) %>
             </table>
         </div>
-        <br>
-        <a href='/'><button class="add">Back</button></a>
         <% } %>
 </body>
 

@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser'); var app = express()
-const Todo = require('./models')
-const dbConfig = require('./config');
+const Todo = require('./src/models')
+const dbConfig = require('./src/config');
 const mongoose = require('mongoose');
 var PORT = 3000
 
