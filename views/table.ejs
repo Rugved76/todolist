@@ -1,0 +1,82 @@
+<style>
+    th,
+    td {
+        padding: 15px;
+        color: black;
+        background-color: aliceblue;
+        border: none;
+        border-radius: 3px;
+    }
+    tr:hover{
+        background-color: crimson;
+        transition: 0.3s;
+        color: blue;
+    }
+    body{
+        background-color: black;
+    }
+    button {
+        background-color: transparent;
+        border: none;
+        float: right;
+        color: red;
+    }
+
+    button:hover {
+        background-color: black;
+        color: white;
+        transition: 0.3s;
+        border-radius: 2px;
+    }
+    h1{
+        font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        color: blueviolet;
+        text-align: center;
+    }
+    .container{
+        justify-content: center;
+        display: flex;
+        margin: auto;
+    }
+</style>
+
+
+<hr>
+
+<% if(music!=null) { %>
+    <h1><strong id="title">MUSIC LIST</strong></h1>
+    <div class="container">
+        <table border="1px">
+            <tr>
+                <th>Songname</th>
+                <th>Film </th>
+                <th>Music_director </th>
+                <th>singer </th>
+                <th>Delete Song</th>
+            </tr>
+            <% music.forEach(function(item){ %>
+                <tr>
+                    <td>
+                        <%= item.Songname%>
+                    </td>
+                    <td>
+                        <%= item.Film %>
+                    </td>
+                    <td>
+                        <%= item.Music_director%>
+                    </td>
+                    <td>
+                        <%= item.singer %>
+                    </td>
+                    <td>
+                        <form method="post" action="/deleteSongs/<%= item._id %>">
+                            <button type="submit"><strong>X</strong></button>
+                        </form>
+                    </td>
+
+                    </td>
+                </tr>
+                <% }) %>
+        </table>
+    </div>
+    <% } %>
