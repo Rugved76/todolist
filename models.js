@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
-const MusicSchema = mongoose.Schema({
-    Songname: String,
+const Todoschema = mongoose.Schema({
+    taskname: String,
     singer: String
 }, {
     timestamps: true
 });
 
-module.exports = mongoose.model('Music', MusicSchema);
+module.exports = mongoose.model('Todo', Todoschema);
 

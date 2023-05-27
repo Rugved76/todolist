@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser'); var app = express()
-const Music = require('./models')
+const Todo = require('./models')
 const dbConfig = require('./config');
 const mongoose = require('mongoose');
 var PORT = 3000
@@ -26,9 +26,9 @@ app.get('/', (req, res) => {
     res.render("index")
 });
 
-app.post("/addsong", (req, res) => {
-    var myData = new Music(req.body);
-    myData.save()
+app.post("/addTask", (req, res) => {
+    var data = new Todo(req.body);
+    data.save()
         .then(item => {
             // res.send("item saved to database");
             res.redirect('/')
@@ -41,19 +41,19 @@ app.post("/addsong", (req, res) => {
 
 app.get('/getSongs', (req, res) => {
     console.log(req.query)
-    Music.find(req.query).
-        then(music => {
-            res.render("table", { music: music })
+    Todo.find(req.query).
+        then(taskitem => {
+            res.render("table", { taskitem: taskitem })
         }).catch(err => {
             res.json({ "message": err })
-        })
+     })
 })
 
 
 
 app.post('/deleteSongs/:id', (req, res) => {
-    Music.findByIdAndDelete(req.params.id).
-        then(music => {
+    Todo.findByIdAndDelete(req.params.id).
+        then(taskitem => {
             // console.log("Deleted Successfully")
             res.redirect('/getSongs')
         }).catch((err) => {
