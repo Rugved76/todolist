@@ -9,7 +9,6 @@ app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-
 mongoose.Promise = global.Promise;
 
 mongoose.connect(dbConfig.url, {
@@ -53,7 +52,7 @@ app.get('/getSongs', (req, res) => {
 
 app.post('/deleteSongs/:id', (req, res) => {
     Todo.findByIdAndDelete(req.params.id).
-        then(taskitem => {
+        then(taskitem   => {
             // console.log("Deleted Successfully")
             res.redirect('/getSongs')
         }).catch((err) => {
@@ -62,6 +61,6 @@ app.post('/deleteSongs/:id', (req, res) => {
 })
 
 app.listen(PORT, () => {
-    console.log("Server is listening on port 3000");
+    console.log(`Server is listening at port : ${PORT}`);
 });
 
