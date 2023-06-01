@@ -38,7 +38,7 @@ app.post("/addTask", (req, res) => {
 });
 
 
-app.get('/getSongs', (req, res) => {
+app.get('/list', (req, res) => {
     console.log(req.query)
     Todo.find(req.query).
         then(taskitem => {
@@ -54,7 +54,7 @@ app.post('/deleteSongs/:id', (req, res) => {
     Todo.findByIdAndDelete(req.params.id).
         then(taskitem   => {
             // console.log("Deleted Successfully")
-            res.redirect('/getSongs')
+            res.redirect('/list')
         }).catch((err) => {
             res.json({ "message": err })
         })
