@@ -6,74 +6,95 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <style>
-        *{
+        * {
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
-        strong{
+
+        a {
+            letter-spacing: 1px;
+            color: red;
+        }
+
+        a:hover {
+            opacity: 0.5;
+            transition: 0.3s;
+        }
+
+        strong {
             font-size: x-large;
             letter-spacing: 2px;
         }
-        /* .navbar-nav {
-            float: right;
-        } */
-        .container{
+
+        .container {
             display: flex;
             justify-items: center;
             justify-content: center;
-            margin-top: 5%;
+            margin-top: 15%;
         }
-        .inp{
+
+        .inp {
             border-radius: 3px;
+            letter-spacing: 1px;
             border: 1px solid black;
         }
-        body{
-            background-color: blueviolet;
-            /* background: linear-gradient(blueviolet,violet); */
+
+        body {
+            background-image: url('https://images.unsplash.com/photo-1476842634003-7dcca8f832de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
         }
-        .add{
-            background: transparent;
-            border-radius: 3px;
-            border: 1px solid black;
-            margin: 5px;
-        }
-        .inp{
-            width: 20vw;
-        }
-        .add:hover{
+
+        .add {
             background-color: white;
+            border-radius: 5px;
             color: black;
+            margin: 5px;
+            padding: 9.5px 10px;
+            border: 1px solid white;
+        }
+
+        .inp {
+            width: 20vw;
+            height: 6vh;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .add:hover {
+            background-color: green;
             transition: 0.3s;
         }
-        .navbar-nav{
-            margin-left: 80vw;
+
+        .navbar-nav {
+            margin-left: 79vw;
         }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav id="navv" class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand mx-3 " href="/"><strong>Todo</strong></a>
-
         <div class="collapse navbar-collapse" id="x">
             <ul class="navbar-nav">
                 <li class="nav-item active">
                     <a class="nav-link active" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/getSongs">Todo List</a>
+                    <a class="nav-link active" href="/getSongs">TodoList</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="https://github.com/Rugved76/todolist.git" target="_blank">About us</a>
+                    <a class="nav-link active" href="https://github.com/Rugved76/todolist.git"
+                        target="_blank">Github</a>
                 </li>
             </ul>
         </div>
     </nav>
     <div class="container">
         <form method="post" action="/addtask">
-            <input class="inp"  type="text" name="taskname" placeholder="Enter task name..." required>
-            <input class="add" type="submit" value="+">
+            <input class="inp" type="text" name="taskname" autocapitalize="words" placeholder="Enter task ..." required>
+            <input class="add" type="submit" value="➕">
         </form>
     </div>
-    
+
 </body>
+
 </html>
