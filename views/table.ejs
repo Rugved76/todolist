@@ -12,9 +12,24 @@
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
         }
 
+        a {
+            letter-spacing: 1px;
+        }
+
+        a:hover {
+            opacity: 0.6;
+            transition: 0.3s;
+        }
+
         strong {
             font-size: x-large;
             letter-spacing: 2px;
+        }
+
+        td {
+            cursor: pointer;
+            letter-spacing: 1px;
+            font-size: 20px;
         }
 
         .add {
@@ -36,7 +51,7 @@
         }
 
         .navbar-nav {
-            margin-left: 80vw;
+            margin-left: 79vw;
         }
 
         th,
@@ -48,6 +63,13 @@
             /* border-radius: 3px; */
         }
 
+        th {
+            font-size: large;
+            letter-spacing: 2px;
+            text-align: center;
+            border: none;
+        }
+
         tr:hover {
             background-color: crimson;
             transition: 0.3s;
@@ -55,22 +77,26 @@
         }
 
         body {
-            background-color: rgb(7, 27, 50);
+            /* background-color: rgb(7, 27, 50); */
+            background-image: url('https://images.unsplash.com/photo-1476842634003-7dcca8f832de?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
         }
 
         button {
             background-color: transparent;
             border: none;
             float: right;
-            color: black;
+            color: green;
+            opacity: 0.6;
         }
 
         button:hover {
-            color: red;
+            color: rgb(190, 4, 4);
             transition: 0.3s;
+            opacity: 1;
             border-radius: 2px;
-            
-            /* border: 1px solid black; */
+            /* transform: rotateZ('20deg'); */
+            user-select: none;
         }
 
         h1 {
@@ -80,7 +106,6 @@
 
         table {
             margin-top: 5%;
-
         }
 
         .containe {
@@ -88,13 +113,40 @@
             display: flex;
             margin: auto;
         }
-        
+
+        tr:hover {
+            background-color: black;
+            color: white;
+            transition: 0.3s;
+        }
+
+        td {
+            padding-left: 25px;
+            padding-right: 25px;
+            word-spacing: 2px;
+            text-transform: capitalize;
+        }
+
+        .x:hover {
+            /* color: white; */
+            transition: 0.3s ease-in-out;
+            padding-left: 40px;
+            background-color: rgb(214, 214, 214);
+        }
+        /* .y:hover{
+            transform: scale(1.5);
+        } */
+        #heading {
+            font-size: 20px;
+            letter-spacing: 3px;
+            user-select: none;
+        }
     </style>
     <title>Document</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand mx-3 " href="/"><strong>Todo</strong></a>
         <div class="collapse navbar-collapse" id="x">
             <ul class="navbar-nav">
@@ -102,33 +154,34 @@
                     <a class="nav-link active" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/getSongs">Todo List</a>
+                    <a class="nav-link active" href="/getSongs">TodoList</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="https://github.com/Rugved76/todolist.git" target="blank">About us</a>
+                    <a class="nav-link active" href="https://github.com/Rugved76/todolist.git" target="blank">Github</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <% if(taskitem!=null) { %>
+    <% if(val!=null) { %>
         <div class="containe">
             <table>
-                <tr>
-                    <th>Task</th>
+                <caption>Tasks</caption>
+                <!-- <tr>
+                    <th id="heading">Tasks</th>
                     <th></th>
-                </tr>
-                <% taskitem.forEach(function(item){ %>
+                </tr> -->
+                <% val.forEach(function(item){ %>
                     <tr>
-                        <td>
-                            <%= item.taskname%>
+                        <td class="x">
+                            <%= item.taskname %>
                         </td>
                         <td>
                             <form method="post" action="/deleteSongs/<%= item._id %>">
-                                <button type="submit"><strong>-</strong></button>
+                                <button type="submit"><strong class="y">⊗</strong></button>
                             </form>
                         </td>
                     </tr>
-                    <% }) %>
+                <% }) %>
             </table>
         </div>
         <% } %>
